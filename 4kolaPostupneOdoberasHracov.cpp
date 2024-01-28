@@ -26,20 +26,20 @@ int main()
 
         int najmenejBody = std::numeric_limits<int>::max();
         std::string vyhernyHrac;
-        int kvalifikaciaVyherneho = 0;  // Ukladá hodnotu kvalifikácie víaza
+        int kvalifikaciaVyherneho = 0;  // UkladÃ¡ hodnotu kvalifikÃ¡cie vÃ­Å¥aza
 
         for (int i = 0; i < 5; i++)
         {
-            if (hraci[i] != "") {  // Kontrola, èi hráè ešte nevypadol
+            if (hraci[i] != "") {  // Kontrola, Äi hrÃ¡Ä eÅ¡te nevypadol
                 int nahodnaHodnota1 = std::rand() % 21;
                 int nahodnaHodnota2 = std::rand() % 21;
                 int nahodnaHodnota3 = std::rand() % 21;
                 body[i] = nahodnaHodnota1 + nahodnaHodnota2 + nahodnaHodnota3;
 
-                // Vypísa meno hráèa a hodnoty po kadom hode
+                // VypÃ­saÅ¥ meno hrÃ¡Äa a hodnoty po kaÅ¾dom hode
                 std::cout << hraci[i] << ": " << nahodnaHodnota1 << " " << nahodnaHodnota2 << " " << nahodnaHodnota3 << " (Celkovo: " << body[i] << ")" << std::endl;
 
-                // Aktualizova najmenej bodového hráèa
+                // AktualizovaÅ¥ najmenej bodovÃ©ho hrÃ¡Äa
                 if (body[i] < najmenejBody || (body[i] == najmenejBody && kvalifikacia[i] > kvalifikaciaVyherneho)) {
                     najmenejBody = body[i];
                     vyhernyHrac = hraci[i];
@@ -48,18 +48,18 @@ int main()
             }
         }
 
-        // Vypísa hráèa s najmenej bodmi v danom kole a oznaèi ho ako vypadnutého
+        // VypÃ­saÅ¥ hrÃ¡Äa s najmenej bodmi v danom kole a oznaÄiÅ¥ ho ako vypadnutÃ©ho
         std::cout << "Vypadol hrac: " << vyhernyHrac << " s najmenej bodmi: " << najmenejBody << std::endl;
 
-        // Oznaèi vypadnutého hráèa
+        // OznaÄiÅ¥ vypadnutÃ©ho hrÃ¡Äa
         for (int i = 0; i < 5; i++) {
             if (hraci[i] == vyhernyHrac) {
-                hraci[i] = "";  // Oznaèi hráèa ako vypadnutého
+                hraci[i] = "";  // OznaÄiÅ¥ hrÃ¡Äa ako vypadnutÃ©ho
             }
         }
     }
 
-    // Nájs a vypísa víaza na konci štvrtého kola
+    // NÃ¡jsÅ¥ a vypÃ­saÅ¥ vÃ­Å¥aza na konci Å¡tvrtÃ©ho kola
     int najviacCelkovo = 0;
     std::string vitaz;
 
@@ -73,7 +73,7 @@ int main()
     std::cout << "Vitaz sutaze po 4. kole: " << vitaz << " s celkovym poctom bodov: " << najviacCelkovo << std::endl;
 
 
-    // Volání _CrtDumpMemoryLeaks() na konci programu
+    // VolÃ¡nÃ­ _CrtDumpMemoryLeaks() na konci programu
     _CrtDumpMemoryLeaks();
 
     return 0;
